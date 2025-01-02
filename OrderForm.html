@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOPI-UNO - Order Form</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .total-purchase {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form input[readonly] {
+            background-color: #eee;
+        }
+
+        form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KOPI-UNO</h1>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#" class="index.html" onclick="openTab(event, 'best-sellers')">Home</a></li>
+                <li><a href="#" class="Menu.html" onclick="openTab(event, 'menu')">Menu</a></li>
+                <li><a href="#" class="OrdeForm.html" onclick="openTab(event, 'order-form')">Order Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="order-form" class="tab-content">
+            <h2 style="text-align: center;">Order Form</h2>
+            <form action="#" method="post" id="orderForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="order">Order:</label>
+                <textarea id="order" name="order" rows="4" placeholder="Enter order and price (e.g., Coffee - 120)" required></textarea>
+
+                <label for="total">Total Purchase (₱):</label>
+                <input type="text" id="total" name="total" readonly class="total-purchase">
+
+                <button type="submit">Submit Order</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const orderTextarea = document.getElementById('order');
+        const totalInput = document.getElementById('total');
+
+        orderTextarea.addEventListener('input', () => {
+            const orders = orderTextarea.value.split('\n');
+            let total = 0;
+
+            orders.forEach(order => {
+                const priceMatch = order.match(/\-\s*(\d+)/);
+                if (priceMatch) {
+                    total += parseInt(priceMatch[1]);
+                }
+            });
+
+            totalInput.value = `₱${total}`;
+        });
+    </script>
+</body>
+</html>

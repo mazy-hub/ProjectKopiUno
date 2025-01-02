@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOPI-UNO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding: 20px;
+            max-height: 600px;
+            overflow-y: auto; /* Scroll if content overflows */
+        }
+
+        #menu img {
+            width: 100%; /* Adjust to fit container */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 400px; /* Set a max width */
+            object-fit: cover; /* Ensure proper fitting */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+
+        .menu-item {
+            text-align: center;
+        }
+
+        .menu-item h2 {
+            margin: 10px 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .tab-content {
+            display: none; /* Hide all tabs by default */
+        }
+
+        .tab-content.active {
+            display: block; /* Show active tab */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to KOPI-UNO</h1>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#" class="index.html" onclick="openTab(event, 'best-sellers')">Home</a></li>
+                <li><a href="#" class="Menu.html" onclick="openTab(event, 'menu')">Menu</a></li>
+                <li><a href="#" class="OrdeForm.html" onclick="openTab(event, 'order-form')">Order Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div id="menu" class="tab-content">
+            <h2>CAFFEINE</h2>
+            <img src="https://scontent.fmnl5-2.fna.fbcdn.net/v/t1.15752-9/465092723_1288897752350199_4818203245747696791_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHIDdqUSXLquBjMXNb5jJk1uhc84yRi8US6FzzjJGLxRNCHPN5pBARC9yezhv5_WxOKqV811HOevQg8tuLUVRgO&_nc_ohc=U7ENtMkm3VsQ7kNvgFP2-dC&_nc_zt=23&_nc_ht=scontent.fmnl5-2.fna&oh=03_Q7cD1gFec_3mI2J3oN2OGqg3PxXfhiNXwW7ZTEM5WM0fdXdnFw&oe=679CC640" alt="Coffee">
+            
+            <h2>NON-CAFFEINE</h2>
+            <img src="https://scontent.fmnl5-2.fna.fbcdn.net/v/t1.15752-9/462566139_511077557996274_9049561666733466464_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGL9HRWwXP8gAN1CgeNoASNZ7ihkYtOQrZnuKGRi05Cts_5Mrsk7zUpHx4IfxFyH72EzqQBSKLA1m0Uz-HpqEHf&_nc_ohc=QvRrpKBpDWQQ7kNvgExXNDY&_nc_zt=23&_nc_ht=scontent.fmnl5-2.fna&oh=03_Q7cD1gFXz2evtNzCcn9I7euEc4VUH9dTgrOeFhZF-MM9G60OdA&oe=679CD199" alt="Menu Non-Caffeine">
+        </div>
+
+    </main>
+
+    <footer>
+       <p>&copy; 2024 KOPI-UNO. All rights reserved.</p>
+    </footer>
+
+    <script>
+       function openTab(evt, tabName) {
+           const tabContents = document.querySelectorAll('.tab-content');
+           tabContents.forEach(tab => {
+               tab.classList.remove('active');
+           });
+
+           const tabLinks = document.querySelectorAll('.tab-link');
+           tabLinks.forEach(link => {
+               link.classList.remove('active');
+           });
+
+           document.getElementById(tabName).classList.add('active');
+           evt.currentTarget.classList.add('active');
+       }
+    </script>
+
+</body>
+</html>

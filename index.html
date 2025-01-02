@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOPI-UNO</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            text-align: center; 
+        }
+
+        header {
+            background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvcm01MTMtZi0wMDMtbDE0aWMxYXouanBn.jpg');
+            background-size: cover; 
+            background-position: center; 
+            color: black; 
+            padding: 60px 20px; 
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: rgb(24, 22, 22); 
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a.active {
+            background-color: #f4f7f4; 
+        }
+
+        .tab-content {
+            display: none; 
+            padding: 20px;
+        }
+
+        .tab-content.active {
+            display: block; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #88734c; 
+        }
+
+        .best-sellers {
+            background-color: #44443b; 
+            padding: 20px; 
+        }
+
+        img {
+            border: 2px solid #fdfafa; 
+            border-radius: 5px; 
+            margin: 5px; 
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); 
+        }
+
+        .best-sellers img {
+            width: 480px; 
+            height: 480px; 
+            object-fit: cover; 
+            margin-top: 10px; 
+        }
+
+        h3, p { 
+            color: rgb(245, 232, 232); 
+        }
+
+        h2 {
+            color: rgb(231, 219, 219); 
+        }
+
+        .info-box {
+            border: 2px solid #f5e3e3; 
+            border-radius: 10px; 
+            background-color: rgba(226, 190, 123, 0.911); 
+            padding: 30px; 
+            margin: 30px auto; 
+            max-width: 900px; 
+            color: rgb(216, 205, 205); 
+            text-align: center; 
+        }
+
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000; 
+        }
+        
+        .chat-header {
+            background-color: #800000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            user-select: none; 
+        }
+        
+        .chat-body {
+            display: none; 
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            max-height: 400px; 
+            overflow-y: auto; 
+        }
+        
+        #chatMessages {
+            padding: 10px; 
+        }
+        
+        .message {
+            margin: 10px 0; 
+            padding: 8px 12px; 
+            border-radius: 15px; 
+            max-width: 80%; 
+            word-wrap: break-word; 
+        }
+        
+        .user-message {
+            background-color: #800000; 
+            color: white; 
+        }
+        
+        .bot-message {
+            background-color: #f1f1f1; 
+            color: #333; 
+        }
+        
+        .chat-footer {
+            display: flex; 
+            border-top: 1px solid #ddd; 
+            padding: 10px; 
+            background-color: white; 
+        }
+        
+        .chat-footer input {
+            flex-grow: 1; 
+            padding: 8px; 
+        }
+        
+        .chat-footer button {
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to KOPI-UNO</h1>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" class="index.html" onclick="openTab(event, 'best-sellers')">Home</a></li>
+            <li><a href="#" class="Menu.html" onclick="openTab(event, 'menu')">Menu</a></li>
+            <li><a href="#" class="OrdeForm.html" onclick="openTab(event, 'order-form')">Order Form</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <div id="best-sellers" class="tab-content active best-sellers">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/467482212_434372233086302_2225478749618454545_n.png?stp=dst-png_s480x480&_nc_cat=111&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeF7RSF9J1dkKoTvWx1Ri6jcxZyLvAqmITnFnIu8CqYhOS9zx9HZrSVUcdz7ypgJT014_GgXZHLlSY6GDffpbcWT&_nc_ohc=w8kWyC4ojiQQ7kNvgGCnuxY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gGEDURKXylWJvPjjY96uECYirHaMMdI7DmAo1Fjmm9vtQ&oe=679CDBDE" alt="Chocolate"> <img src="https://i.pinimg.com/736x/05/b4/fb/05b4fbc3f169175e6deb97b3977175b6.jpg" alt="White">
+        <img src="https://i.pinimg.com/736x/05/b4/fb/05b4fbc3f169175e6deb97b3977175b6.jpg" alt="White"> <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/470051902_426947347050543_3239017842677952290_n.png?stp=dst-png_s480x480&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeE7W6pNXeT5UBWAN1CQ0yqN89IY5r5tWhrz0hjmvm1aGtL5Tt4A4Ta3-8ZGlMXyAeDSrAjca-TkQktdu0CJo7bO&_nc_ohc=uWr6MqQlUp0Q7kNvgEIpwZl&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gEi45uUS2skdeKfyYEtsAPUIuyZzcAMc5ch7U5Oh-WMDA&oe=679CE342" alt="Spanish Latte">  
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/470053107_3963024753944231_2919543767751657734_n.png?stp=dst-png_s480x480&_nc_cat=110&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeH1Xs5fOA_J4C3p7NlVenZkWZPtjbhY009Zk-2NuFjTT73a4Sq8IpdSXjbmUVhT6vcB4f_Op2LaSVJMtsCFQKXu&_nc_ohc=tE5BFNuF5pIQ7kNvgHfbqb9&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gGKkCARZVv6-rUuNdHgjahmvtI5Xv-tzWSH0ktNaksFdA&oe=679CDA3F" alt="coffee selection">
+    <br>
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471719289_1858645941611032_3228850771515203311_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGRC9wPBmrtocYoHrOWst85e_PIBmNhN0d788gGY2E3R4xk5cCKe3YNCwsgERIck0A3tAPW01tDBRJJklETDwDm&_nc_ohc=6c-BAJnCDCgQ7kNvgFoVMNJ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gHzGXyK0ZBeu1i2tiRXKdI53aybEmaqts_hknCZ4pk5uw&oe=679A2430" alt="matcha"> <img src="https://scontent.fmnl5-2.fna.fbcdn.net/v/t1.15752-9/462560870_936436561433118_532723106482509351_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeG8uS8t67iV84T53rvWnCO-rYQgL522Cf-thCAvnbYJ_6fMsv2afdtmWTdjKuCkqa4oduFYyf3PMfcVCOX62-xx&_nc_ohc=G6aId2_AyGwQ7kNvgELIRqx&_nc_zt=23&_nc_ht=scontent.fmnl5-2.fna&oh=03_Q7cD1gG447RGjR15EYc-W410mhxBRL05n5qJQVFMUDEBdQV_Sg&oe=679CFEFF" alt="strawberry">
+    <h2>TO-GO</h2>
+    <img src="https://scontent.fmnl5-2.fna.fbcdn.net/v/t1.15752-9/462555660_955665719862981_1850545749621797147_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEetyIt0snuhX0u5-y0UDHa0pgoBoIcxl7SmCgGghzGXtk8xOsqqvYFKHVWrPbjDyBPeJ9oGN7bJ-TZIilvud85&_nc_ohc=p0WxzTe_RtIQ7kNvgHFSukI&_nc_zt=23&_nc_ht=scontent.fmnl5-2.fna&oh=03_Q7cD1gH5bzjTIgZdrOzlUV1M-o9s-LEWNaYPWw6lYyRix44feg&oe=679A2008" alt="Espresso"> <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471806433_901886875260255_2105099869455530662_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHHcmICxeS599ChN51bS2VeF0L9BzmgdGYXQv0HOaB0ZmQY87iGX6l_d6zUwuGuTnXcqDf7-CC4jJKyFRRgoPQo&_nc_ohc=UtWKhfmUoCcQ7kNvgFgOPbv&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gGnuL1efAaKqx0c0_k7WU7iTp6QI4kr8GmRzQVC4V3AGQ&oe=679A51EF" alt="Espresso">
+
+        <img src="https://scontent.fmnl5-2.fna.fbcdn.net/v/t1.15752-9/462576868_941868181219718_5910476020144706408_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHFjwPGJwwbaWGewrwkZVW2gQu0g6DxmASBC7SDoPGYBBKV8EoMDpYtGogbvNOV5WG2P8CA3JVbnlaPGK-W6N_a&_nc_ohc=tDgcDBi9X5MQ7kNvgHPnICA&_nc_zt=23&_nc_ht=scontent.fmnl5-2.fna&oh=03_Q7cD1gH0UfjfDGe0XjLR3KfUaqmCA2vWozRHR_qYe_W4J13C1Q&oe=679A1468" alt="Herbal Tea"> <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/471808117_1288399042252020_590753911535161996_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeFbAl_DQWbtrPEeWNFkk5uvr1PuB5vCpfOvU-4Hm8Kl87fTMKnMk-DtNd5L1JNJcLZ4OQvekoySvDOfvgM1ABNL&_nc_ohc=zbYMurp6sY4Q7kNvgEYgDA-&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1gEuc9TyApcomk3_6UtngQ7DLouGvcWBIYU3kToNAUiMxg&oe=679A3399" alt="Espresso">
+    </div>
+    <section id="best-sellers" class="tab-content active best-sellers">
+        <h2>ABOUT US</h2>
+        <p>We are passionate about delivering the finest beverages to our customers. 
+           <br>
+            Whether you're at home or on the go, we bring your favorite drinks straight to your doorstep with our reliable delivery service. 
+            <br>
+           Experience the perfect blend of convenience and quality in every sip!</p>
+    </section>
+    
+    <section id="best-sellers" class="tab-content active best-sellers">
+        <h2>CONTACT US</h2>
+        <p>FACEBOOK: <a href="https://www.facebook.com/profile.php?id=100079955648743&mibextid=ZbWKwL" 
+            class="kopi-uno-link" target="_blank">KOPI-UNO</a></p>
+        <p>INSTAGRAM: <a href="https://www.instagram.com/projectkopiuno/profilecard/?igsh=MXJ2YXJ2bnU3cWxlcA==" 
+            class="kopi-uno-link" target="_blank">@projectkopiuno</a></p>
+        <p>EMAIL: KopiUno@gmail.com</p>
+        <p>PHONE: 09774812939</p>
+    </section>
+</div>
+
+    <div id="menu" class="tab-content">
+        <h2>CAFFEINE</h2>
+        <img src="https://scontent.fmnl5-2.fna.fbcdn.net/v/t1.15752-9/465092723_1288897752350199_4818203245747696791_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeHIDdqUSXLquBjMXNb5jJk1uhc84yRi8US6FzzjJGLxRNCHPN5pBARC9yezhv5_WxOKqV811HOevQg8tuLUVRgO&_nc_ohc=U7ENtMkm3VsQ7kNvgFP2-dC&_nc_zt=23&_nc_ht=scontent.fmnl5-2.fna&oh=03_Q7cD1gFec_3mI2J3oN2OGqg3PxXfhiNXwW7ZTEM5WM0fdXdnFw&oe=679CC640" alt="Coffee">
+        
+        <h2>NON-CAFFEINE</h2>
+        <img src="https://scontent.fmnl5-2.fna.fbcdn.net/v/t1.15752-9/462566139_511077557996274_9049561666733466464_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGL9HRWwXP8gAN1CgeNoASNZ7ihkYtOQrZnuKGRi05Cts_5Mrsk7zUpHx4IfxFyH72EzqQBSKLA1m0Uz-HpqEHf&_nc_ohc=QvRrpKBpDWQQ7kNvgExXNDY&_nc_zt=23&_nc_ht=scontent.fmnl5-2.fna&oh=03_Q7cD1gFXz2evtNzCcn9I7euEc4VUH9dTgrOeFhZF-MM9G60OdA&oe=679CD199" alt="Menu Non-Caffeine">
+    </div>
+
+    <div id="order-form" class="tab-content">
+        <h2 style="text-align: center;">Order Form</h2>
+        <form action="#" method="post" id="orderForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="order">Order:</label>
+            <textarea id="order" name="order" rows="4" placeholder="Enter order and price (e.g., Coffee - 120)" required></textarea>
+            <br>
+            <label for="total">Total Purchase (₱):</label>
+            <input type="text" id="total" name="total" readonly class="total-purchase">
+            <br>
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+
+    <div class="chatbot">
+        <div class="chat-header" onclick="toggleChat()">
+            Chat with us!
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div id="chatMessages"></div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2024 KOPI-UNO. All rights reserved.</p>
+</footer>
+
+<script>
+    function openTab(event, tabName) {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].classList.remove("active");
+        }
+        tabLinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+
+    // Toggle chat visibility
+    function toggleChat() {
+        var chatBody = document.getElementById("chatBody");
+        chatBody.style.display = (chatBody.style.display === "none" || chatBody.style.display === "") ? "block" : "none";
+    }
+
+    // Send chat message
+    function sendMessage() {
+        var chatMessages = document.getElementById("chatMessages");
+        var chatInput = document.getElementById("chatInput");
+        var message = chatInput.value.trim();
+        if (message !== "") {
+            var userMessage = document.createElement("div");
+            userMessage.classList.add("message", "user-message");
+            userMessage.textContent = message;
+            chatMessages.appendChild(userMessage);
+            chatInput.value = "";
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            botReply(message); // simulate bot reply
+        }
+    }
+
+    // Simulate a bot response
+    function botReply(userMessage) {
+        setTimeout(function () {
+            var botMessage = document.createElement("div");
+            botMessage.classList.add("message", "bot-message");
+            botMessage.textContent = "how can i help you? ";
+            document.getElementById("chatMessages").appendChild(botMessage);
+        }, 1000);
+    }
+
+</script>
+
+</body>
+</html>
